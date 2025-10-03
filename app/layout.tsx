@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, DM_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -9,11 +9,11 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: "Campus Marketplace",
+  description: "A campus-only marketplace app where students can trade within the university",
 };
 
-const geistSans = Geist({
+const geistSans = DM_Sans({
   variable: "--font-geist-sans",
   display: "swap",
   subsets: ["latin"],
