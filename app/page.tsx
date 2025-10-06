@@ -1,93 +1,52 @@
-import { DeployButton } from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import { AuthButton } from "@/components/auth-button";
-import { Hero } from "@/components/hero";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { ConnectSupabaseSteps } from "@/components/tutorial/connect-supabase-steps";
-import { SignUpUserSteps } from "@/components/tutorial/sign-up-user-steps";
-import { hasEnvVars } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 
-import { createClient } from '@/lib/supabase/server'
-import Items from "./my_components/items";
-
-export default async function Home() {
-
- const supabase = await createClient();
-
-  // Fetch items from DB
-  const { data: items, error } = await supabase.from("items").select("*");
-  if (error) {
-    console.error("Error fetching items:", error.message);
-  }
-
-  // Attach image URLs
-const itemsWithUrls = items?.map((item) => {
-  let imageUrl = null;
-
-  if (item.images) {
-    const { data } = supabase.storage
-      .from("images")
-      .getPublicUrl(item.images); // safe now
-
-    imageUrl = data.publicUrl;
-  }
-
-  return {
-    ...item,
-    imageUrl,
-  };
-});
-
-
+export default function Page() {
   return (
-    <main className="min-h-screen flex flex-col items-center">
-      <div className="flex-1 w-full flex flex-col gap-20 items-center">
-        <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-          <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
-            <div className="flex gap-5 items-center font-semibold">
-              <Link href={"/"}>Campus Marketplace</Link>
-              {/* <div className="flex items-center gap-2">
-                <DeployButton />
-              </div> */}
-            </div>
-            {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
-          </div>
-        </nav>
-
-        {/* <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
-          <Hero />
-          <main className="flex-1 flex flex-col gap-6 px-4">
-            <h2 className="font-medium text-xl mb-4">Next steps</h2>
-            {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-          </main>
-        </div> */}
-<div className="grid grid-cols-3 gap-6 p-5">
-          {itemsWithUrls?.map((item) => (
-            <Items
-              key={item.id}
-              img={item.imageUrl}
-              name={item.name}
-              price={item.price}
-            />
-          ))}
-        </div>
-
-        <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
-          <p>
-            Powered by{" "}
-            <a
-              href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-              target="_blank"
-              className="font-bold hover:underline"
-              rel="noreferrer"
-            >
-              Supabase
-            </a>
+    <main className="min-h-screen pt-16">
+      <section className="flex justify-between items-center min-h-[80vh] px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb80_1px,transparent_1px)] [background-size:16px_16px]">
+        <div className="flex flex-col gap-3">
+          <h1 className="font-extrabold text-5xl tracking-tight leading-14">
+            Buy, Sell, and Meet
+            <br />
+            Other Students Right
+            <br />
+            Here on Your Campus
+          </h1>
+          <p className="">
+            University students often have items they no longer need — books,
+            gadgets,
+            <br />
+            furniture, clothes, and more — but lack a trusted, student-only
+            platform
+            <br />
+            to buy, sell, or exchange those items safely and conveniently.
           </p>
-          <ThemeSwitcher />
-        </footer>
-      </div>
+          <Link href="/" className="hover:underline">
+            Get Started
+          </Link>
+        </div>
+        <Image
+          src="/heroImage.jpg"
+          alt=""
+          width={350}
+          height={350}
+          className="rounded-lg"
+        />
+      </section>
+      <section className="flex flex-col px-[100px]">
+        <h1 className="text-2xl font-bold tracking-tight text-center">
+          How it works
+        </h1>
+        <p className="text-muted-foreground text-sm text-center mb-8">
+          Simple as calculus...
+        </p>
+        <div className="flex justify-center gap-12">
+          <div className="bg-neutral-50 rounded-lg h-40 w-40">r</div>
+          <div className="bg-neutral-50 rounded-lg h-40 w-40">r</div>
+          <div className="bg-neutral-50 rounded-lg h-40 w-40">r</div>
+        </div>
+      </section>
     </main>
   );
 }

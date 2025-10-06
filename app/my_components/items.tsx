@@ -1,14 +1,28 @@
 import Image from "next/image";
-export default function Items({img, name, price}:{img:string, name:string, price:string}) {
+import Link from "next/link";
+export default function Items({
+  img,
+  name,
+  price,
+  id,
+}: {
+  img: string;
+  name: string;
+  price: string;
+  id: string;
+}) {
   return (
-    <div>
-        <div className="relative h-20 w-20">
-
-        <Image src={img} alt="" fill />
-        </div>
-        <h1>title is {name}</h1>
-        <p>price is {price}</p>
-
-    </div>
-  )
+    <Link href={`/${id}`}>
+      <div className="relative h-[150] w-[150] rounded-lg overflow-hidden">
+        <Image
+          src={img}
+          alt=""
+          className="w-full h-full object-cover hover:scale-105 duration-300"
+          fill
+        />
+      </div>
+      <h1 className="font-bold text-lg">{name}</h1>
+      <p className="opacity-80">{price}</p>
+    </Link>
+  );
 }

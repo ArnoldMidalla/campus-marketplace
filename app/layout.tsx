@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, DM_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import Nav from "./my_components/nav";
+import Footer from "./my_components/footer";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -10,7 +12,8 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
   title: "Campus Marketplace",
-  description: "A campus-only marketplace app where students can trade within the university",
+  description:
+    "A campus-only marketplace app where students can trade within the university",
 };
 
 const geistSans = DM_Sans({
@@ -33,7 +36,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Nav />
           {children}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
