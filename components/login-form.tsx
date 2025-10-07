@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { GoogleAuthButton } from "./google-auth-button";
 // import { GoogleAuthButton } from "./google-auth-button";
 
 export function LoginForm({
@@ -58,9 +59,9 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {/* <div className="mb-4">
+          <div className="mb-4">
             <GoogleAuthButton />
-          </div> */}
+          </div>
           <form onSubmit={handleLogin}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">

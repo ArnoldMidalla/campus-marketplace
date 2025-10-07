@@ -1,48 +1,36 @@
-// "use client";
+"use client";
 
-// import { useState } from "react";
-// import { createClient } from "@/lib/supabase/client";
-// import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase/client";
 
-// export function GoogleAuthButton({ className }: { className?: string }) {
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState<string | null>(null);
+export function GoogleAuthButton() {
+  const handleGoogleSignIn = async () => {
+    const supabase = createClient();
 
-//   const handleGoogleSignIn = async () => {
-//     setIsLoading(true);
-//     setError(null);
-//     try {
-//       const supabase = createClient();
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`, // You can handle post-login redirect here
+      },
+    });
 
-//       // The new Supabase JS auth method for OAuth
-//       const { error } = await supabase.auth.signInWithOAuth({
-//         provider: "google",
-//         options: {
-//           // redirect back to an authenticated page in the app
-//           redirectTo: `https://teyohuqtwvgtfjxrynqh.supabase.co/auth/v1/callback`,
-//         },
-//       });
+    if (error) {
+      console.error("Google sign-in error:", error);
+    }
+  };
 
-//       if (error) throw error;
-//       // The browser will be redirected to Google's consent screen.
-//     } catch (err: unknown) {
-//       setError(err instanceof Error ? err.message : "An error occurred");
-//       setIsLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div className={className}>
-//       <Button
-//         type="button"
-//         className="w-full"
-//         onClick={handleGoogleSignIn}
-//         disabled={isLoading}
-//         variant="outline"
-//       >
-//         {isLoading ? "Redirecting..." : "Continue with Google"}
-//       </Button>
-//       {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
-//     </div>
-//   );
-// }
+  return (
+    <Button
+      variant="outline"
+      className="w-full flex items-center justify-center gap-2"
+      onClick={handleGoogleSignIn}
+    >
+      <img
+        src="https://www.svgrepo.com/show/355037/google.svg"
+        alt="Google"
+        className="w-5 h-5"
+      />
+      Continue with Google
+    </Button>
+  );
+}

@@ -13,6 +13,7 @@ export default function Nav() {
                 <DeployButton />
               </div> */}
         </div>
+
         {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
       </div>
     </nav>

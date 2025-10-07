@@ -4,7 +4,8 @@ import TestimonialBox from "./my_components/testimonialBox";
 
 export default function Page() {
   return (
-    <main className="min-h-screen pt-16 flex flex-col gap-6">
+    <main className="min-h-screen pt-2 flex flex-col gap-6">
+      {/* pt-16 */}
       <section className="flex justify-between items-center min-h-[90vh] px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb80_1px,transparent_1px)] [background-size:16px_16px]">
         <div className="flex flex-col gap-3">
           <h1 className="font-extrabold text-5xl tracking-tight leading-14 w-fit">
