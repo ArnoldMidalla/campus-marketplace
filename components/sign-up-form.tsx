@@ -15,7 +15,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { GoogleAuthButton } from "./google-auth-button";
+// import { GoogleAuthButton } from "./google-auth-button";
 
 export function SignUpForm({
   className,
@@ -65,10 +65,10 @@ export function SignUpForm({
           <CardDescription>Create a new account</CardDescription>
         </CardHeader>
         <CardContent>
-            <div className="mb-4">
-              <GoogleAuthButton />
-            </div>
-            <form onSubmit={handleSignUp}>
+          {/* <div className="mb-4">
+            <GoogleAuthButton />
+          </div> */}
+          <form onSubmit={handleSignUp}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
