@@ -12,7 +12,7 @@ export default function Items({
   id: string;
 }) {
   return (
-    <Link href={`/${id}`}>
+    <Link href={`/item/${id}`}>
       <div className="relative h-[150] w-[150] rounded-lg overflow-hidden">
         <Image
           src={img}

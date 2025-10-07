@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Image from "next/image";
-import ProductImages from "../my_components/productImages";
-import ProductInfo from "../my_components/productInfo";
+import ProductImages from "../../my_components/productImages";
+import ProductInfo from "../../my_components/productInfo";
 import Link from "next/link";
 
 export default async function ItemsDetails({
