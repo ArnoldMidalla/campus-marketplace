@@ -11,6 +11,9 @@ export function LogoutButton() {
     const supabase = createClient();
     await supabase.auth.signOut();
     router.push("/auth/login");
+    // revalidatePath("/");
+    //after logout, refresh the page to update the UI
+    router.refresh();
   };
 
   return <Button onClick={logout}>Logout</Button>;

@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Nav from "./my_components/nav";
 import Footer from "./my_components/footer";
+import { Toaster, toast } from 'sonner'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -37,6 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
+          <Toaster />
           {children}
           <Footer/>
         </ThemeProvider>

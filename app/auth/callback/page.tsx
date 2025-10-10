@@ -19,8 +19,9 @@ export default function AuthCallbackPage() {
       }
 
       if (data?.session) {
+        router.refresh();
         // Successful login — redirect wherever you want
-        router.replace("/protected");
+        router.replace("/buy");
       } else {
         router.replace("/auth/login");
       }

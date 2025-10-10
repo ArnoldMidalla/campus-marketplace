@@ -4,7 +4,7 @@ import TestimonialBox from "./my_components/testimonialBox";
 
 export default function Page() {
   return (
-    <main className="min-h-screen pt-10 flex flex-col gap-6">
+    <main className="min-h-screen pt-10 flex flex-col gap-6 items-center">
       {/* pt-16 */}
       <section className="flex flex-col lg:flex-row gap-4 lg:gap-24 lg:justify-between items-center lg:min-h-[90vh] px-[30px] lg:px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb80_1px,transparent_1px)] [background-size:16px_16px]">
         <div className="flex flex-col gap-3 items-center lg:items-start pt-14 lg:pt-0">
@@ -29,7 +29,7 @@ export default function Page() {
           className="rounded-lg "
         />
       </section>
-      <section className="flex flex-col px-[30px] lg:px-[100px]">
+      <section className="flex flex-col px-[30px] lg:max-w-5xl">
         <h1 className="text-3xl font-bold tracking-tight text-center">
           How it works
         </h1>
@@ -37,7 +37,7 @@ export default function Page() {
           Simple as calculus...
         </p>
         <div className="grid lg:grid-cols-3 gap-8 text-center">
-          <div className="rounded-2xl hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
+          <div className="rounded-md hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
             <p className="text-lg leading-5 font-bold tracking-tight">
               1. Sign Up
             </p>
@@ -48,7 +48,7 @@ export default function Page() {
             </p>
             <img src="/Nerd-amico.svg" alt="" className="h-36" />
           </div>
-          <div className="rounded-2xl hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
+          <div className="rounded-md hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
             <p className="text-lg leading-5 font-bold tracking-tight">
               2. List an Item
             </p>
@@ -58,7 +58,7 @@ export default function Page() {
             </p>
             <img src="/Checklist-cuate.svg" alt="" className="h-36" />
           </div>
-          <div className="rounded-2xl hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
+          <div className="rounded-md hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
             <p className="text-lg leading-5 font-bold tracking-tight">
               3. Sell or Buy
             </p>
@@ -71,7 +71,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col px-[30px] lg:px-[100px] mt-8">
+      <section className="flex flex-col px-[30px] lg:max-w-5xl mt-8">
         <h1 className="text-3xl font-bold tracking-tight text-center">
           Testimonials
         </h1>

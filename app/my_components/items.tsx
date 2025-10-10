@@ -15,8 +15,8 @@ export default function Items({
 }) {
   console.log(img)
   return (
-    <Link href={`/item/${id}`} className="border p-4 hover:-translate-y-0.5 hover:shadow-md duration-300 dark:bg-neutral-900">
-      <div className="relative h-[140] w-[180] overflow-hidden">
+    <Link href={`/item/${id}`} className="border rounded-md p-4 hover:-translate-y-0.5 hover:shadow-md duration-300 dark:bg-neutral-900">
+      <div className="relative h-[140px] w-full overflow-hidden rounded-sm">
         <Image
           src={img}
           // src={img.startsWith("http") ? img : `https://${img}`} // ✅ Changed line
