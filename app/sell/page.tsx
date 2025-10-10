@@ -47,6 +47,7 @@ export default function SellPage() {
 
   const [used, setUsed] = useState("");
   const [type, setType] = useState("");
+  const [uni, setUni] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -56,10 +57,11 @@ export default function SellPage() {
     type: type,
     des: "",
     used: used,
+    uni: uni,
     // uploadedById: id,
     // uploadedByName: user?.user_metadata?.full_name || "",
   });
-  console.log(type, used);
+  console.log(type, used, uni);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -122,6 +124,7 @@ export default function SellPage() {
           type: formData.type,
           des: formData.des,
           used: formData.used,
+          uni: formData.uni,
           images: imageUrl,
           uploadById: userId,
           uploadedByName: userName || "",
@@ -158,6 +161,36 @@ export default function SellPage() {
             required
           />
         </div>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">
+              {uni === "" ? "Select your university" : uni}
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>Select Your University</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuRadioGroup
+              value={uni}
+              // onValueChange={setType}
+              onValueChange={(value) => {
+                setUni(value);
+                setFormData((prev) => ({ ...prev, uni: value }));
+              }}
+            >
+              <DropdownMenuRadioItem value="Fut Minna">
+                Fut Minna
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="Unilag" disabled>
+                Unilag (soon)
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="Unilorin" disabled>
+                Unilorin (soon)
+              </DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <div>
           <Label htmlFor="price">Price (₦)</Label>
@@ -207,7 +240,9 @@ export default function SellPage() {
               </DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="Book">Book</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="Shoe">Shoe</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Electronics">Electronics</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="Electronics">
+                Electronics
+              </DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="Other">Other</DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>

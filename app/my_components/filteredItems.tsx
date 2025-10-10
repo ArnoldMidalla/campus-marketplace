@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Items from "./items";
 import { Input } from "@/components/ui/input";
+import Loading from "../loading";
 
 export default function FilteredItems() {
   const supabase = createClient();
@@ -96,7 +97,7 @@ useEffect(() => {
 
       {/* Items */}
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <div className="grid grid-cols-4 gap-5">
           {items.map((item) => (
@@ -107,6 +108,8 @@ useEffect(() => {
               price={item.price}
               id={item.id}
               category={item.type}
+              uploadedByName={item.uploadedByName}
+              used={item.used}
             />
           ))}
         </div>
