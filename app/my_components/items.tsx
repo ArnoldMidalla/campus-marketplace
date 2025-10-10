@@ -13,11 +13,13 @@ export default function Items({
   id: string;
   category:string
 }) {
+  console.log(img)
   return (
-    <Link href={`/item/${id}`} className="border p-4 hover:-translate-y-0.5 hover:shadow-md duration-300 dark:bg-neutral-900 rounded-md">
+    <Link href={`/item/${id}`} className="border p-4 hover:-translate-y-0.5 hover:shadow-md duration-300 dark:bg-neutral-900">
       <div className="relative h-[140] w-[180] overflow-hidden">
         <Image
           src={img}
+          // src={img.startsWith("http") ? img : `https://${img}`} // ✅ Changed line
           alt=""
           className="w-full h-full object-cover"
           fill

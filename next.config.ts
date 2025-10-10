@@ -1,12 +1,19 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    remotePatterns: [new URL("https://teyohuqtwvgtfjxrynqh.supabase.co/**")],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "teyohuqtwvgtfjxrynqh.supabase.co",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io", // ✅ Added for ImageKit images
+        pathname: "/**",
+      },
+    ],
   },
 };
-export default nextConfig;
+
+module.exports = nextConfig; // ✅ changed line — only one export

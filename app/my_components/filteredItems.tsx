@@ -21,35 +21,41 @@ export default function FilteredItems() {
   const [loading, setLoading] = useState(false);
 
   // Fetch items based on selected uni
-  useEffect(() => {
-    const fetchItems = async () => {
-      setLoading(true);
-      let query = supabase
-        .from("items")
-        .select("*")
-        .order("created_at", { ascending: false });
+useEffect(() => {
+  const fetchItems = async () => {
+    setLoading(true);
 
-      if (selectedUni !== "all") {
-        query = query.eq("uni", selectedUni);
-      }
+    // Fetch from Supabase
+    let query = supabase
+      .from("items")
+      .select("*")
+      .order("created_at", { ascending: false });
 
-      const { data, error } = await query;
-      if (error) console.error("Error fetching items:", error.message);
+    if (selectedUni !== "all") {
+      query = query.eq("uni", selectedUni);
+    }
 
-      // Attach image URLs
-      const itemsWithUrls = data?.map((item) => {
-        const { data: urlData } = supabase.storage
-          .from("images")
-          .getPublicUrl(item.images);
-        return { ...item, imageUrl: urlData?.publicUrl };
-      });
+    const { data, error } = await query;
 
-      setItems(itemsWithUrls || []);
+    if (error) {
+      console.error("Error fetching items:", error.message);
       setLoading(false);
-    };
+      return;
+    }
 
-    fetchItems();
-  }, [selectedUni]);
+    // No need to generate public URLs — they're already full ImageKit links
+    const itemsWithUrls = data?.map((item) => ({
+      ...item,
+      imageUrl: item.images, // assuming this field stores full URLs (from your screenshot)
+    }));
+
+    setItems(itemsWithUrls || []);
+    setLoading(false);
+  };
+
+  fetchItems();
+}, [selectedUni]);
+
 
   return (
     <div className="flex flex-col items-center gap-2 pt-6 ">
