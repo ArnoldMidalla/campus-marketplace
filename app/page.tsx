@@ -6,12 +6,12 @@ export default function Page() {
   return (
     <main className="min-h-screen pt-10 flex flex-col gap-6 items-center">
       {/* pt-16 */}
-      <section className="flex flex-col lg:flex-row gap-4 lg:gap-24 lg:justify-between items-center lg:min-h-[90vh] px-[30px] lg:px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb80_1px,transparent_1px)] [background-size:16px_16px]">
-        <div className="flex flex-col gap-3 items-center lg:items-start pt-14 lg:pt-0">
-          <h1 className="font-extrabold text-center lg:text-left text-3xl lg:text-5xl tracking-tight leading-8 lg:leading-14 w-fit">
+      <section className="flex flex-col md:flex-row gap-4 md:gap-16 lg:gap-24 md:justify-between items-center md:min-h-[90vh] px-[30px] md:px-[60px] lg:px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb80_1px,transparent_1px)] [background-size:16px_16px]">
+        <div className="flex flex-col gap-3 items-center md:items-start pt-14 md:pt-0">
+          <h1 className="font-extrabold text-center md:text-left text-3xl md:text-4xl lg:text-5xl tracking-tight leading-8 md:leading-9 lg:leading-14 w-fit">
             Buy, Sell, and Meet Other Students Right Here on Your Campus
           </h1>
-          <p className="leading-4 lg:leading-5 text-sm text-center lg:text-left lg:text-base">
+          <p className="leading-4 lg:leading-5 text-sm text-center md:text-left lg:text-base">
             University students often have items they no longer need — books,
             gadgets, furniture, clothes, and more — but lack a trusted,
             student-only platform to buy, sell, or exchange those items safely
@@ -21,13 +21,16 @@ export default function Page() {
             Get Started
           </Link>
         </div>
-        <Image
-          src="/heroImage.jpg"
-          alt=""
-          width={380}
-          height={380}
-          className="rounded-lg "
-        />
+        <div className="overflow-hidden relative min-w-[380px] h-[380px] md:min-w-[300px] md:h-[300px] lg:min-w-[380px] lg:h-[380px] rounded-lg">
+          <Image
+            src="/heroImage.jpg"
+            alt=""
+            // width={380}
+            // height={380}
+            fill
+            className="w-full h-full object-cover"
+          />
+        </div>
       </section>
       <section className="flex flex-col px-[30px] lg:max-w-5xl">
         <h1 className="text-3xl font-bold tracking-tight text-center">
@@ -36,7 +39,7 @@ export default function Page() {
         <p className="text-muted-foreground text-sm text-center mb-4">
           Simple as calculus...
         </p>
-        <div className="grid lg:grid-cols-3 gap-8 text-center">
+        <div className="grid md:grid-cols-3 gap-8 text-center">
           <div className="rounded-md hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
             <p className="text-lg leading-5 font-bold tracking-tight">
               1. Sign Up
@@ -78,7 +81,7 @@ export default function Page() {
         <p className="text-muted-foreground text-sm text-center mb-4">
           Let others rave about us...
         </p>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <TestimonialBox
             name="Sarah Johnson"
             username="@sarah_jay"

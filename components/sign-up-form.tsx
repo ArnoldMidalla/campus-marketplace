@@ -61,8 +61,8 @@ export function SignUpForm({
     <div className={cn("flex flex-col gap-6 pt-16", className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl">Sign up</CardTitle>
-          <CardDescription>Create a new account</CardDescription>
+          <CardTitle className="text-2xl text-center">Sign up</CardTitle>
+          <CardDescription className="text-center">Create a new account</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="mb-4">
@@ -75,7 +75,7 @@ export function SignUpForm({
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="mail@example.com"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -112,7 +112,7 @@ export function SignUpForm({
             </div>
             <div className="mt-4 text-center text-sm">
               Already have an account?{" "}
-              <Link href="/auth/login" className="underline underline-offset-4">
+              <Link href="/auth/login" className="hover:underline underline-offset-4">
                 Login
               </Link>
             </div>
