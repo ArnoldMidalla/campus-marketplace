@@ -3,6 +3,8 @@
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 
+import { toast } from "sonner";
+
 import { useRouter } from "next/navigation";
 
 export default function DeleteButton({ id }: { id: string }) {
@@ -14,13 +16,12 @@ export default function DeleteButton({ id }: { id: string }) {
     const { error } = await supabase.from("items").delete().eq("id", id);
 
     if (error) {
-      console.error("❌ Error deleting item:", error.message);
-      alert("Failed to delete item.");
+      // console.error("Error deleting item:", error.message);
+      toast.error("Failed to delete item.");
     } else {
-      alert("✅ Item deleted successfully!");
+      toast.success("Item deleted successfully!");
       // Optionally refresh page or update UI
       //   window.location.reload(); // or use router.refresh() if using Next.js
-
       router.push("/buy");
     }
   };

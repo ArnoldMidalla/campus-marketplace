@@ -1,3 +1,4 @@
+import CopyLinkButton from "@/app/my_components/copyBtn";
 import DeleteBtn from "@/app/my_components/deleteBtn";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
@@ -25,8 +26,8 @@ export default async function ItemsDetails({
 
   return (
     <div className="min-h-screen flex flex-col mx-auto max-w-5xl py-16">
-      {data.user?.id === item?.uploadById ? (
-        <DeleteBtn id={id}/>
+      {data.user?.id === item?.uploadById ? (<>
+        <DeleteBtn id={id}/> <CopyLinkButton id={id} /></>
       ) : (
         <p>
           youre logged in but you didnt upload this product so you dont get a

@@ -40,14 +40,13 @@ export default function Items({
       <div className="relative h-[140px] w-full overflow-hidden rounded-sm">
         <Image
           src={img}
-          // src={img.startsWith("http") ? img : `https://${img}`} // ✅ Changed line
-          alt=""
+          alt={`Image of ${name}`}
           className="w-full h-full object-cover"
           fill
         />
       </div>
       <p className="text-sm opacity-80 pt-2 leading-4">{category}</p>
-      <h1 className="font-bold leading-5">{name}</h1>
+      <h1 className="font-bold leading-5 line-clamp-2">{name}</h1>
       <div className="flex items-center gap-1">
         <p className="text-blue-700 dark:text-blue-500 font-bold">₦{price}</p>
         {/* {used ? <p className="text-sm opacity-80 leading-4">{used}</p> : null} */}

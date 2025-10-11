@@ -38,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          <Toaster />
+          <Toaster position="top-center" richColors />
           {children}
           <Footer/>
         </ThemeProvider>

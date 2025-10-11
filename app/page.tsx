@@ -21,7 +21,7 @@ export default function Page() {
             Get Started
           </Link>
         </div>
-        <div className="overflow-hidden relative min-w-[380px] h-[380px] md:min-w-[300px] md:h-[300px] lg:min-w-[380px] lg:h-[380px] rounded-lg">
+        <div className="overflow-hidden relative min-w-[270px] h-[270px] md:min-w-[300px] md:h-[300px] lg:min-w-[380px] lg:h-[380px] rounded-lg">
           <Image
             src="/heroImage.jpg"
             alt=""
@@ -39,7 +39,7 @@ export default function Page() {
         <p className="text-muted-foreground text-sm text-center mb-4">
           Simple as calculus...
         </p>
-        <div className="grid md:grid-cols-3 gap-8 text-center">
+        <div className="grid sm:grid-cols-3 gap-8 text-center">
           <div className="rounded-md hover:-translate-y-0.5 hover:shadow-lg duration-300 bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center gap-2 border w-full">
             <p className="text-lg leading-5 font-bold tracking-tight">
               1. Sign Up
@@ -81,7 +81,7 @@ export default function Page() {
         <p className="text-muted-foreground text-sm text-center mb-4">
           Let others rave about us...
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <TestimonialBox
             name="Sarah Johnson"
             username="@sarah_jay"

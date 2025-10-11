@@ -22,51 +22,45 @@ export default function FilteredItems() {
   const [loading, setLoading] = useState(false);
 
   // Fetch items based on selected uni
-useEffect(() => {
-  const fetchItems = async () => {
-    setLoading(true);
+  useEffect(() => {
+    const fetchItems = async () => {
+      setLoading(true);
 
-    // Fetch from Supabase
-    let query = supabase
-      .from("items")
-      .select("*")
-      .order("created_at", { ascending: false });
+      // Fetch from Supabase
+      let query = supabase
+        .from("items")
+        .select("*")
+        .order("created_at", { ascending: false });
 
-    if (selectedUni !== "all") {
-      query = query.eq("uni", selectedUni);
-    }
+      if (selectedUni !== "all") {
+        query = query.eq("uni", selectedUni);
+      }
 
-    const { data, error } = await query;
+      const { data, error } = await query;
 
-    if (error) {
-      console.error("Error fetching items:", error.message);
+      if (error) {
+        console.error("Error fetching items:", error.message);
+        setLoading(false);
+        return;
+      }
+
+      // No need to generate public URLs — they're already full ImageKit links
+      const itemsWithUrls = data?.map((item) => ({
+        ...item,
+        imageUrl: item.images, // assuming this field stores full URLs (from your screenshot)
+      }));
+
+      setItems(itemsWithUrls || []);
       setLoading(false);
-      return;
-    }
+    };
 
-    // No need to generate public URLs — they're already full ImageKit links
-    const itemsWithUrls = data?.map((item) => ({
-      ...item,
-      imageUrl: item.images, // assuming this field stores full URLs (from your screenshot)
-    }));
-
-    setItems(itemsWithUrls || []);
-    setLoading(false);
-  };
-
-  fetchItems();
-}, [selectedUni]);
-
+    fetchItems();
+  }, [selectedUni]);
 
   return (
     <div className="flex flex-col items-center gap-2 pt-6 ">
-      <div className="flex gap-4 pb-4">
-        <div>
-          <Input type="search" placeholder="Search items..." />
-          {/* <Button type="submit" variant="outline">
-            Search
-          </Button> */}
-        </div>
+      <div className="flex gap-4 pb-4 px-4">
+        <Input type="search" placeholder="Search items..." />
         {/* Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -99,7 +93,7 @@ useEffect(() => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {items.map((item) => (
             <Items
               key={item.id}

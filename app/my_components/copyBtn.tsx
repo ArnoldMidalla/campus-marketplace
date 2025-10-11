@@ -1,0 +1,23 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+
+import { toast } from "sonner";
+
+export default function CopyLinkButton({ id }: { id: string }) {
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(`http://localhost:3000/item/${id}`);
+      toast.success("Link copied to clipboard!");
+    } catch (error) {
+      console.error("Failed to copy:", error);
+      toast.error("Could not copy link.");
+    }
+  };
+
+  return (
+    <Button onClick={handleCopy} variant="outline">
+      Copy Link
+    </Button>
+  );
+}
