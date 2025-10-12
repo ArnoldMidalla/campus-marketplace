@@ -24,16 +24,35 @@ export default async function ItemsDetails({
     .single();
   console.log(item.uploadById); //user that uploaded product item
 
+  console.log(item);
+
+  const name = item?.name;
+  const phone = "08065088147";
+  const user = data.user?.user_metadata.full_name;
   return (
-    <div className="min-h-screen flex flex-col mx-auto max-w-5xl py-16">
-      {data.user?.id === item?.uploadById ? (<>
-        <DeleteBtn id={id}/> <CopyLinkButton id={id} /></>
+    <div className="min-h-screen flex mx-auto max-w-5xl items-center py-16 gap-12">
+      {/* {data.user?.id === item?.uploadById ? (
+        <>
+          <DeleteBtn id={id} /> <CopyLinkButton id={id} />{" "}
+          <Link target="_blank" rel="noopener noreferrer"
+            href={`https://api.whatsapp.com/send?phone=${phone}&text=Hey%2C%20I%27m%20${user}%20from%20the%20Campus%20Marketplace%20app.%20I%27m%20interested%20in%20the%20${name}.%20Let%27s%20talk`}
+          >
+            Message on whatsapp
+          </Link>
+        </>
       ) : (
         <p>
           youre logged in but you didnt upload this product so you dont get a
           delete button
         </p>
-      )}
+      )} */}
+      <div className="min-w-[500px] min-h-[440px] relative overflow-hidden rounded-lg">
+        <Image src={item.images} fill alt="" className="object-cover" />
+      </div>
+      <div>
+        <h1 className="tracking-tight text-3xl font-bold">{item.name}</h1>
+        <p className="opacity-80 ">{item.des}</p>
+      </div>
     </div>
   );
 }

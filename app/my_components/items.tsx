@@ -19,15 +19,15 @@ export default function Items({
 }) {
   console.log(img);
   let test;
-  if (used === "new") {
+  if (used === "New") {
     test = (
-      <p className="text-sm font-medium opacity-80 leading-4 text-green-700">
+      <p className="text-sm font-medium opacity-80 leading-4 text-green-700 dark:text-green-600">
         {used}
       </p>
     );
   } else {
     test = (
-      <p className="text-sm font-medium opacity-80 leading-4 text-red-700">
+      <p className="text-sm font-medium opacity-80 leading-4 text-red-700 dark:text-red-600">
         {used}
       </p>
     );
