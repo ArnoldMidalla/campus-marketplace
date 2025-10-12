@@ -35,35 +35,51 @@ export async function AuthButton() {
     //   Hey {data.user?.user_metadata.name}!{/* Hey, {user.email}! */}
     //   <LogoutButton />
     // </div>
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">Menu</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="start">
-        <DropdownMenuLabel>
-          Hey {data.user?.user_metadata.name}!
-        </DropdownMenuLabel>
-        <DropdownMenuGroup>
-          <Link className={cn(
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild className="sm:hidden">
+          <Button variant="outline">Menu</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56" align="start">
+          <DropdownMenuLabel>
+            Hey {data.user?.user_metadata.name}!
+          </DropdownMenuLabel>
+          <DropdownMenuGroup>
+            <Link
+              className={cn(
                 "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0"
-              )} href={'/buy'}>Buy</Link>
-          <Link className={cn(
+              )}
+              href={"/buy"}
+            >
+              Buy
+            </Link>
+            <Link
+              className={cn(
                 "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0"
-              )} href={'/sell'}>Sell</Link>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem disabled>Your Profile</DropdownMenuItem>
-          <DropdownMenuItem>Bless Arnold's Aza</DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <LogoutButton />
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+              )}
+              href={"/sell"}
+            >
+              Sell
+            </Link>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem disabled>Your Profile</DropdownMenuItem>
+            <DropdownMenuItem>Bless Arnold's Aza</DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <LogoutButton />
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <div className="items-center gap-4 hidden sm:flex">
+        Hey {data.user?.user_metadata.name}!{/* Hey, {user.email}! */}
+        <LogoutButton />
+      </div>
+    </>
   ) : (
     <div className="flex gap-2">
       <Button asChild size="sm" variant={"outline"}>

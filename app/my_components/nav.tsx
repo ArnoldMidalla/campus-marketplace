@@ -21,7 +21,7 @@ export default function Nav() {
       <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
         <div className="flex gap-5 items-center font-semibold">
           <Link href={"/"}>Campus Marketplace</Link>
-          <NavigationMenu viewport={false}>
+          <NavigationMenu viewport={false} className="hidden sm:block">
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink

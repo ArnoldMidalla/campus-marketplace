@@ -6,16 +6,13 @@ export default function Page() {
   return (
     <main className="min-h-screen pt-10 flex flex-col gap-6 items-center">
       {/* pt-16 */}
-      <section className="flex flex-col md:flex-row gap-4 md:gap-16 lg:gap-24 md:justify-between items-center md:min-h-[90vh] px-[30px] md:px-[60px] lg:px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb80_1px,transparent_1px)] [background-size:16px_16px]">
+      <section className="flex flex-col md:flex-row gap-4 md:gap-16 lg:gap-24 md:justify-between items-center md:min-h-[90vh] px-[30px] md:px-[60px] lg:px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb40_1px,transparent_1px)] [background-size:16px_16px]">
         <div className="flex flex-col gap-3 items-center md:items-start pt-14 md:pt-0">
           <h1 className="font-extrabold text-center md:text-left text-3xl md:text-4xl lg:text-5xl tracking-tight leading-8 md:leading-9 lg:leading-14 w-fit">
             Buy, Sell, and Meet Other Students Right Here on Your Campus
           </h1>
           <p className="leading-4 lg:leading-5 text-sm text-center md:text-left lg:text-base">
-            University students often have items they no longer need — books,
-            gadgets, furniture, clothes, and more — but lack a trusted,
-            student-only platform to buy, sell, or exchange those items safely
-            and conveniently.
+            Campus Marketplace makes it easy for students to safely buy, sell, or trade within their university community — all in one trusted platform.
           </p>
           <Link href="/" className="hover:underline w-fit">
             Get Started
