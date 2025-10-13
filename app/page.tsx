@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import TestimonialBox from "./my_components/testimonialBox";
+import { createClient } from "@/lib/supabase/server";
 
-export default function Page() {
+export default async function Page() {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getUser();
   return (
     <main className="min-h-screen pt-10 flex flex-col gap-6 items-center">
       {/* pt-16 */}
@@ -12,9 +15,14 @@ export default function Page() {
             Buy, Sell, and Meet Other Students Right Here on Your Campus
           </h1>
           <p className="leading-4 lg:leading-5 text-sm text-center md:text-left lg:text-base">
-            Campus Marketplace makes it easy for students to safely buy, sell, or trade within their university community — all in one trusted platform.
+            Campus Marketplace makes it easy for students to safely buy, sell,
+            or trade within their university community — all in one trusted
+            platform.
           </p>
-          <Link href="/" className="hover:underline w-fit">
+          <Link
+            href={data?.user?.id ? "/buy" : "/auth/sign-up"}
+            className="hover:underline w-fit py-2 px-4 bg-black dark:bg-white text-white dark:text-black rounded-md font-medium text-sm"
+          >
             Get Started
           </Link>
         </div>

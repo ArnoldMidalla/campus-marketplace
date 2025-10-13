@@ -145,7 +145,7 @@ export default function SellPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto pt-24 p-6 rounded-2xl space-y-4">
+    <div className="max-w-4xl mx-auto pt-24 rounded-2xl space-y-4">
       <h1 className="text-3xl font-bold text-center tracking-tight">
         Sell an Item
       </h1>

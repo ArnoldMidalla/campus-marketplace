@@ -26,7 +26,7 @@ export default function Nav() {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={'font-medium px-4 py-2 rounded-md'}
+                  className={"font-medium px-4 py-2 rounded-md"}
                 >
                   <Link href="/buy">Buy</Link>
                 </NavigationMenuLink>
@@ -34,9 +34,17 @@ export default function Nav() {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={'font-medium px-4 py-2 rounded-md'}
+                  className={"font-medium px-4 py-2 rounded-md"}
                 >
                   <Link href="/sell">Sell</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={"font-medium px-4 py-2 rounded-md"}
+                >
+                  <Link href={"/events"}>Events</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
