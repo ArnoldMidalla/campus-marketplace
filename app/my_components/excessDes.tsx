@@ -18,7 +18,7 @@ export default function ExcessDes({
   return (
     <>
       <p className="text-black/80 dark:text-white/80 leading-5 text-sm">
-        {displayText}
+        {displayText + " "}
         {description.length > maxLength && (
           <button
             onClick={() => setExpanded(!expanded)}

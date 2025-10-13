@@ -8,6 +8,8 @@ export default function Items({
   category,
   uploadedByName,
   used,
+  uploadById,
+  loggedUser,
 }: {
   img: string;
   name: string;
@@ -16,6 +18,8 @@ export default function Items({
   category?: string;
   uploadedByName?: string;
   used?: string;
+  uploadById?: string;
+  loggedUser?: string;
 }) {
   console.log(img);
   let test;
@@ -33,7 +37,7 @@ export default function Items({
     );
   }
 
-  let formatPrice = price.toLocaleString(); 
+  let formatPrice = price.toLocaleString();
   return (
     <Link
       href={`/item/${id}`}
@@ -50,13 +54,18 @@ export default function Items({
       <p className="text-sm opacity-80 pt-2 leading-4">{category}</p>
       <h1 className="font-bold leading-5 line-clamp-2">{name}</h1>
       <div className="flex items-center gap-1">
-        <p className="text-blue-700 dark:text-blue-500 font-bold">₦{formatPrice}</p>
+        <p className="text-blue-700 dark:text-blue-500 font-bold">
+          ₦{formatPrice}
+        </p>
         {/* {used ? <p className="text-sm opacity-80 leading-4">{used}</p> : null} */}
         {used ? test : null}
       </div>
-      {uploadedByName ? (
+      {/* {uploadedByName ? (
         <p className="text-sm opacity-80 leading-4 tracking-tight">By {uploadedByName}</p>
-      ) : null}
+      ) : null} */}
+      <p className="text-sm opacity-80 leading-4 tracking-tight">
+        By {loggedUser === uploadById ? "you" : uploadedByName}
+      </p>
     </Link>
   );
 }

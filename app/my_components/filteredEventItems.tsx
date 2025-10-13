@@ -11,11 +11,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Items from "./items";
 import { Input } from "@/components/ui/input";
 import Loading from "../loading";
+import EventItems from "./eventItems";
 
-export default function FilteredItems({ loggedUser }: { loggedUser?: string }) {
+export default function FilteredEventItems() {
   const supabase = createClient();
   const [selectedUni, setSelectedUni] = useState("all");
   const [items, setItems] = useState<any[]>([]);
@@ -29,9 +29,9 @@ export default function FilteredItems({ loggedUser }: { loggedUser?: string }) {
 
       // Fetch from Supabase
       let query = supabase
-        .from("items")
+        .from("events")
         .select("*")
-        .order("created_at", { ascending: false });
+        .order("date", { ascending: false });
 
       if (selectedUni !== "all") {
         query = query.eq("uni", selectedUni);
@@ -68,12 +68,12 @@ export default function FilteredItems({ loggedUser }: { loggedUser?: string }) {
   }, [selectedUni, searchQuery]); // added searchQuery dependency
 
   return (
-    <div className="flex flex-col items-center gap-2 pt-6 ">
+    <div className="flex flex-col items-center gap-2 pt-4 ">
       <div className="flex gap-4 pb-4 px-4">
         {/* <Input type="search" placeholder="Search items..." /> */}
         <Input
           type="search"
-          placeholder="Search items..."
+          placeholder="Search events..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full md:w-[300px]"
@@ -110,19 +110,17 @@ export default function FilteredItems({ loggedUser }: { loggedUser?: string }) {
       {loading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 px-2 lg:px-0">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0.5 lg:gap-5">
           {items.map((item) => (
-            <Items
+            <EventItems
               key={item.id}
               img={item.imageUrl}
-              name={item.name}
-              price={item.price}
+              eventName={item.eventName}
+              location={item.location}
               id={item.id}
-              category={item.type}
-              uploadedByName={item.uploadedByName}
-              uploadById={item.uploadById}
-              used={item.used}
-              loggedUser={loggedUser}
+              type={item.type}
+              date={item.date}
+              time={item.time}
             />
           ))}
         </div>

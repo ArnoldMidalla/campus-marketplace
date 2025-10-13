@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 import { useRouter } from "next/navigation";
+import { Trash } from "lucide-react";
 
 export default function DeleteButton({ id }: { id: string }) {
   const router = useRouter();
@@ -30,8 +31,9 @@ export default function DeleteButton({ id }: { id: string }) {
     <Button
       variant="destructive"
       onClick={handleDelete}
-      className="text-white bg-red-600 hover:bg-red-700"
+      className="text-white bg-red-600 hover:bg-red-700 w-1/2"
     >
+      <Trash className="h-4" strokeWidth={2.3} />
       Delete
     </Button>
   );

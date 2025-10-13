@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Clipboard } from "lucide-react";
 
 import { toast } from "sonner";
 
@@ -16,8 +17,8 @@ export default function CopyLinkButton({ id }: { id: string }) {
   };
 
   return (
-    <Button onClick={handleCopy} variant="outline">
-      Copy Link
+    <Button onClick={handleCopy} variant="outline" className="w-1/2">
+      <Clipboard className="h-4" strokeWidth={2.3} />Copy Link
     </Button>
   );
 }

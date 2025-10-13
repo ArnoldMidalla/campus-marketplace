@@ -20,10 +20,10 @@ export default async function Page() {
             platform.
           </p>
           <Link
-            href={data?.user?.id ? "/buy" : "/auth/sign-up"}
-            className="hover:underline w-fit py-2 px-4 bg-black dark:bg-white text-white dark:text-black rounded-md font-medium text-sm"
+            href={data.user ? "/buy" : "/auth/sign-up"}
+            className="hover:underline w-fit py-2 px-4 bg-black dark:bg-white text-white dark:text-black rounded-md font-medium text-sm hover:bg-opacity-80 dark:hover:bg-opacity-80 duration-200"
           >
-            Get Started
+            {data.user ? 'Continue' : 'Get Started' }
           </Link>
         </div>
         <div className="overflow-hidden relative min-w-[270px] h-[270px] md:min-w-[300px] md:h-[300px] lg:min-w-[380px] lg:h-[380px] rounded-lg">

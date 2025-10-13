@@ -1,9 +1,13 @@
 import FilteredItems from "../my_components/filteredItems";
+import { createClient } from "@/lib/supabase/server";
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getUser();
+
   return (
     <main className="min-h-screen flex flex-col items-center pt-16">
-      <FilteredItems />
+      <FilteredItems loggedUser={data.user?.id} />
     </main>
   );
 }
