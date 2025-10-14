@@ -7,7 +7,7 @@ export default async function Page() {
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
   return (
-    <main className="min-h-screen pt-10 flex flex-col gap-6 items-center">
+    <main className="min-h-screen py-10 flex flex-col gap-6 items-center">
       {/* pt-16 */}
       <section className="flex flex-col md:flex-row gap-4 md:gap-16 lg:gap-24 md:justify-between items-center md:min-h-[90vh] px-[30px] md:px-[60px] lg:px-[100px] inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb40_1px,transparent_1px)] [background-size:16px_16px]">
         <div className="flex flex-col gap-3 items-center md:items-start pt-14 md:pt-0">

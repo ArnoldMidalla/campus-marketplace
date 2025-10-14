@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
   title: "Campus Marketplace",
   description:
-    "A campus-only marketplace app where students can trade within the university",
+    "By Arnold. A campus-only marketplace app where students can trade within the university",
 };
 
 const geistSans = DM_Sans({

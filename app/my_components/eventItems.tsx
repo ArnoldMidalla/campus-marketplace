@@ -22,7 +22,7 @@ export default function EventItems({
 
   return (
     <Link
-      href={`/item/${id}`}
+      href={`/event/${id}`}
       className="scale-90 lg:scale-100 border rounded-md p-4 hover:-translate-y-0.5 hover:shadow-md duration-300 dark:bg-neutral-900"
     >
       <div className="relative h-[140px] w-full overflow-hidden rounded-sm">

@@ -6,7 +6,7 @@ export default async function Home() {
   const { data } = await supabase.auth.getUser();
 
   return (
-    <main className="min-h-screen flex flex-col items-center pt-16">
+    <main className="min-h-screen flex flex-col items-center py-16">
       <FilteredItems loggedUser={data.user?.id} />
     </main>
   );

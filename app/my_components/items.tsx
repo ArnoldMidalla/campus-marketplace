@@ -25,13 +25,13 @@ export default function Items({
   let test;
   if (used === "New") {
     test = (
-      <p className="text-sm font-medium opacity-80 leading-4 text-green-700 dark:text-green-600">
+      <p className="text-sm font-medium opacity-80 leading-4 text-green-700 dark:text-green-500">
         {used}
       </p>
     );
   } else {
     test = (
-      <p className="text-sm font-medium opacity-80 leading-4 text-red-700 dark:text-red-600">
+      <p className="text-sm font-medium opacity-80 leading-4 text-red-700 dark:text-red-500">
         {used}
       </p>
     );

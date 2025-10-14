@@ -11,8 +11,8 @@ export default function CopyLinkButton({ id }: { id: string }) {
       await navigator.clipboard.writeText(`http://localhost:3000/item/${id}`);
       toast.success("Link copied to clipboard!");
     } catch (error) {
-      console.error("Failed to copy:", error);
-      toast.error("Could not copy link.");
+      // console.error("Failed to copy:", error);
+      toast.error("Could not copy link");
     }
   };
 

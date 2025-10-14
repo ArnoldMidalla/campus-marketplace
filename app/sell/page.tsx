@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
+import { Send } from "lucide-react";
 
 export default function SellPage() {
   const router = useRouter();
@@ -145,7 +146,7 @@ export default function SellPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto pt-24 rounded-2xl space-y-4">
+    <div className="max-w-4xl mx-auto py-24 rounded-2xl space-y-4 px-8 lg:px-0">
       <div className="flex flex-col">
         <h1 className="text-3xl font-bold text-center tracking-tight">
           Sell an Item
@@ -240,9 +241,6 @@ export default function SellPage() {
               }}
             >
               <DropdownMenuRadioItem value="Cloth">Cloth</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Gadget">
-                Gadget
-              </DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="Book">Book</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="Shoe">Shoe</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="Electronics">
@@ -323,7 +321,7 @@ export default function SellPage() {
           </Button>
         ) : (
           <Button type="submit" disabled={loading} className="w-full">
-            List Item
+            <Send /> List Item
           </Button>
         )}
       </form>
