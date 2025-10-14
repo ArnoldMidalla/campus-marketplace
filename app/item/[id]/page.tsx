@@ -14,7 +14,7 @@ export default async function ItemsDetails({
   const { data } = await supabase.auth.getUser();
   console.log(data.user?.id); // current logged in user
 
-  const { id } = await params;
+  const { id } = params;
 
   // Fetch that single item
   const { data: item } = await supabase
