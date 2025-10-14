@@ -51,7 +51,7 @@ export default async function Page() {
             </p>
             <p className="text-sm">
               Create your free Campus Connect account using your verified
-              student email. Join your university's trusted marketplace
+              student email. Join your university&apos;s trusted marketplace
               community in seconds.
             </p>
             <img src="/Nerd-amico.svg" alt="" className="h-36" />
@@ -62,7 +62,7 @@ export default async function Page() {
             </p>
             <p className="text-sm">
               Got something you no longer need? Upload photos, add details, and
-              set your price — it's quick and easy.
+              set your price — it&apos;s quick and easy.
             </p>
             <img src="/Checklist-cuate.svg" alt="" className="h-36" />
           </div>
@@ -71,7 +71,7 @@ export default async function Page() {
               3. Sell or Buy
             </p>
             <p className="text-sm">
-              Connect safely with other verified students. Sell what you don't
+              Connect safely with other verified students. Sell what you don&apos;t
               need or grab great deals on books, gadgets, and more — all within
               your campus.
             </p>

@@ -5,14 +5,14 @@ import { AuthButton } from "@/components/auth-button";
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
+  // NavigationMenuContent,
+  // NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-  NavigationMenuViewport,
+  // NavigationMenuTrigger,
+  // navigationMenuTriggerStyle,
+  // NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 
 export default function Nav() {

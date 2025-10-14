@@ -9,12 +9,12 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
+  // DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
+  // DropdownMenuShortcut,
+  // DropdownMenuSub,
+  // DropdownMenuSubContent,
+  // DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
@@ -72,7 +72,7 @@ export async function AuthButton() {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem disabled>Your Profile</DropdownMenuItem>
-            <DropdownMenuItem>Bless Arnold's Aza</DropdownMenuItem>
+            <DropdownMenuItem>Bless Arnold&apos;s Aza</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>

@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/client";
-import { useRouter } from "next/navigation";
 
 export function GoogleAuthButton() {
   const handleGoogleSignIn = async () => {

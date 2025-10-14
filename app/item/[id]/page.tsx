@@ -1,7 +1,6 @@
 import CopyLinkButton from "@/app/my_components/copyBtn";
 import DeleteBtn from "@/app/my_components/deleteBtn";
 import ExcessDes from "@/app/my_components/excessDes";
-import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +17,7 @@ export default async function ItemsDetails({
   const { id } = await params;
 
   // Fetch that single item
-  const { data: item, error } = await supabase
+  const { data: item } = await supabase
     .from("items")
     .select("*")
     .eq("id", id)
@@ -44,7 +43,7 @@ export default async function ItemsDetails({
     );
   }
 
-  let formatPrice = item.price.toLocaleString();
+  const formatPrice = item.price.toLocaleString();
   // console.log(formatted); // "300,000"
 
   return (

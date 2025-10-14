@@ -37,7 +37,7 @@ export default function Items({
     );
   }
 
-  let formatPrice = price.toLocaleString();
+  const formatPrice = price.toLocaleString();
   return (
     <Link
       href={`/item/${id}`}

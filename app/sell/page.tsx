@@ -32,7 +32,7 @@ export default function SellPage() {
   useEffect(() => {
     async function fetchData() {
       const supabase = createClient();
-      const { data: userData, error: userError } =
+      const { data: userData } =
         await supabase.auth.getUser();
 
       const user = userData?.user;
