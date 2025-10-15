@@ -76,7 +76,7 @@ export default function FilteredItems({ loggedUser }: { loggedUser?: string }) {
           placeholder="Search items..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full md:w-[300px]"
+          className="w-full md:w-[300px] bg-white dark:bg-neutral-950"
         />
         {/* Dropdown */}
         <DropdownMenu>

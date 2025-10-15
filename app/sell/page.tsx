@@ -32,8 +32,7 @@ export default function SellPage() {
   useEffect(() => {
     async function fetchData() {
       const supabase = createClient();
-      const { data: userData } =
-        await supabase.auth.getUser();
+      const { data: userData } = await supabase.auth.getUser();
 
       const user = userData?.user;
       console.log(user?.user_metadata?.full_name);
@@ -146,72 +145,75 @@ export default function SellPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-24 rounded-2xl space-y-4 px-8 lg:px-0">
-      <div className="flex flex-col">
-        <h1 className="text-3xl font-bold text-center tracking-tight">
-          Sell an Item
-        </h1>
-        <p className="text-center opacity-80 text-sm">
-          Ready to sell something? Fill the form below
-        </p>
-      </div>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <Label htmlFor="name">Item Name</Label>
-          <Input
-            id="name"
-            name="name"
-            placeholder="e.g. Nike Air Max"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+    <div className="inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb40_1px,transparent_1px)] [background-size:16px_16px]">
+      <div className="max-w-4xl mx-auto py-24 rounded-2xl space-y-4 px-8 lg:px-0">
+        <div className="flex flex-col">
+          <h1 className="text-3xl font-bold text-center tracking-tight">
+            Sell an Item
+          </h1>
+          <p className="text-center opacity-80 text-sm">
+            Ready to sell something? Fill the form below
+          </p>
         </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Label htmlFor="name">Item Name</Label>
+            <Input
+              id="name"
+              name="name"
+              placeholder="e.g. Nike Air Max"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="bg-white dark:bg-neutral-950"
+            />
+          </div>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              {uni === "" ? "Select your university" : uni}
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuLabel>Select Your University</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-              value={uni}
-              // onValueChange={setType}
-              onValueChange={(value) => {
-                setUni(value);
-                setFormData((prev) => ({ ...prev, uni: value }));
-              }}
-            >
-              <DropdownMenuRadioItem value="Fut Minna">
-                Fut Minna
-              </DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Unilag" disabled>
-                Unilag (soon)
-              </DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Unilorin" disabled>
-                Unilorin (soon)
-              </DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                {uni === "" ? "Select your university" : uni}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Select Your University</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup
+                value={uni}
+                // onValueChange={setType}
+                onValueChange={(value) => {
+                  setUni(value);
+                  setFormData((prev) => ({ ...prev, uni: value }));
+                }}
+              >
+                <DropdownMenuRadioItem value="Fut Minna">
+                  Fut Minna
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Unilag" disabled>
+                  Unilag (soon)
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Unilorin" disabled>
+                  Unilorin (soon)
+                </DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
-        <div>
-          <Label htmlFor="price">Price (₦)</Label>
-          <Input
-            id="price"
-            name="price"
-            type="number"
-            placeholder="e.g. 15000"
-            value={formData.price}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div>
+            <Label htmlFor="price">Price (₦)</Label>
+            <Input
+              id="price"
+              name="price"
+              type="number"
+              placeholder="e.g. 15000"
+              value={formData.price}
+              onChange={handleChange}
+              required
+              className="bg-white dark:bg-neutral-950"
+            />
+          </div>
 
-        {/* <div>
+          {/* <div>
           <Label htmlFor="type">Category</Label>
           <Input
             id="type"
@@ -223,46 +225,51 @@ export default function SellPage() {
           />
         </div> */}
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              {type === "" ? "Select product type" : type}
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuLabel>Select Product Type</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-              value={type}
-              // onValueChange={setType}
-              onValueChange={(value) => {
-                setType(value);
-                setFormData((prev) => ({ ...prev, type: value }));
-              }}
-            >
-              <DropdownMenuRadioItem value="Cloth">Cloth</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Book">Book</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Shoe">Shoe</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Electronics">
-                Electronics
-              </DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="Other">Other</DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                {type === "" ? "Select product type" : type}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Select Product Type</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup
+                value={type}
+                // onValueChange={setType}
+                onValueChange={(value) => {
+                  setType(value);
+                  setFormData((prev) => ({ ...prev, type: value }));
+                }}
+              >
+                <DropdownMenuRadioItem value="Cloth">
+                  Cloth
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Book">Book</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Shoe">Shoe</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Electronics">
+                  Electronics
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Other">
+                  Other
+                </DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
-        <div>
-          <Label htmlFor="des">Description</Label>
-          <Textarea
-            id="des"
-            name="des"
-            placeholder="Briefly describe your item"
-            value={formData.des}
-            onChange={handleChange}
-          />
-        </div>
+          <div>
+            <Label htmlFor="des">Description</Label>
+            <Textarea
+              id="des"
+              name="des"
+              placeholder="Briefly describe your item"
+              value={formData.des}
+              onChange={handleChange}
+              className="bg-white dark:bg-neutral-950"
+            />
+          </div>
 
-        {/* <div>
+          {/* <div>
           <Label htmlFor="used">Used or New?</Label>
           <Textarea
             id="used"
@@ -270,61 +277,63 @@ export default function SellPage() {
             placeholder="Briefly describe your item"
             value={formData.used}
             onChange={handleChange}
-          />
+            />
         </div> */}
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              {used === "" ? "Is this product used?" : used}
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuLabel>Is this product used?</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-              value={used}
-              // onValueChange={setUsed}
-              onValueChange={(value) => {
-                setUsed(value);
-                setFormData((prev) => ({ ...prev, used: value }));
-              }}
-            >
-              <DropdownMenuRadioItem value="Used">
-                Yes, it is used
-              </DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="New">
-                No, it is new
-              </DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                {used === "" ? "Is this product used?" : used}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Is this product used?</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup
+                value={used}
+                // onValueChange={setUsed}
+                onValueChange={(value) => {
+                  setUsed(value);
+                  setFormData((prev) => ({ ...prev, used: value }));
+                }}
+              >
+                <DropdownMenuRadioItem value="Used">
+                  Yes, it is used
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="New">
+                  No, it is new
+                </DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
-        <div>
-          <Label htmlFor="image">Upload Image</Label>
-          <Input
-            id="image"
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            required
-          />
-        </div>
+          <div>
+            <Label htmlFor="image">Upload Image</Label>
+            <Input
+              id="image"
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              required
+              className="bg-white dark:bg-neutral-950"
+            />
+          </div>
 
-        {/* <Button type="submit" disabled={loading} className="w-full">
+          {/* <Button type="submit" disabled={loading} className="w-full">
           {loading ? "Uploading..." : "List Item"}
-        </Button> */}
-        {loading ? (
-          <Button size="sm" variant="outline" disabled>
-            <Spinner />
-            Listing Item...
-          </Button>
-        ) : (
-          <Button type="submit" disabled={loading} className="w-full">
-            <Send /> List Item
-          </Button>
-        )}
-      </form>
+          </Button> */}
+          {loading ? (
+            <Button size="sm" variant="outline" disabled>
+              <Spinner />
+              Listing Item...
+            </Button>
+          ) : (
+            <Button type="submit" disabled={loading} className="w-full">
+              <Send /> List Item
+            </Button>
+          )}
+        </form>
+      </div>
     </div>
   );
 }

@@ -41,7 +41,7 @@ export default function Items({
   return (
     <Link
       href={`/item/${id}`}
-      className="scale-90 lg:scale-100 border rounded-md p-4 hover:-translate-y-0.5 hover:shadow-md duration-300 dark:bg-neutral-900"
+      className="scale-90 lg:scale-100 border rounded-md p-4 hover:-translate-y-0.5 hover:shadow-md duration-300 dark:bg-neutral-900 bg-white"
     >
       <div className="relative h-[140px] w-full overflow-hidden rounded-sm">
         <Image
