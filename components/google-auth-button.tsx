@@ -2,11 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/client";
+import { redirect, useRouter } from 'next/navigation';
 
 export function GoogleAuthButton() {
+  const router = useRouter();
+
   const handleGoogleSignIn = async () => {
     const supabase = createClient();
-//test
+    //test
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
@@ -16,8 +19,10 @@ export function GoogleAuthButton() {
 
     if (error) {
       console.error("Google sign-in error:", error);
-    } else{
+    } else {
       // window.location.reload();
+      router.refresh()
+      redirect('/buy')
     }
   };
 
