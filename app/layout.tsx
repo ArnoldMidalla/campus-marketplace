@@ -6,6 +6,7 @@ import Nav from "./my_components/nav";
 import Footer from "./my_components/footer";
 import { Toaster } from 'sonner'
 
+
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
