@@ -110,7 +110,7 @@ export default function FilteredItems({ loggedUser }: { loggedUser?: string }) {
       {loading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 px-2 lg:px-0">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 px-2 md:px-[100] lg:px-[130px]">
           {items.map((item) => (
             <Items
               key={item.id}
