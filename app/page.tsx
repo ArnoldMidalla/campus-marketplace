@@ -14,7 +14,7 @@ export default async function Page() {
           <h1 className="font-extrabold text-center md:text-left text-3xl md:text-4xl lg:text-5xl tracking-tight leading-8 md:leading-9 lg:leading-14 w-fit">
             Buy, Sell, and Meet Other Students Right Here on Your Campus
           </h1>
-          <p className="leading-4 lg:leading-5 text-sm text-center md:text-left lg:text-base">
+          <p className="leading-4 lg:leading-5 text-sm text-center md:text-left lg:text-base text-pretty">
             Campus Marketplace makes it easy for students to safely buy, sell,
             or trade within their university community — all in one trusted
             platform.
