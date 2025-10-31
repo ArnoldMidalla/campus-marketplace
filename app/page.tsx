@@ -17,7 +17,7 @@ export default async function Page() {
           <p className="leading-4 lg:leading-5 text-sm text-center md:text-left lg:text-base text-pretty">
             Campus Marketplace makes it easy for students to safely buy, sell,
             or trade within their university community — all in one trusted
-            platform.
+            platform
           </p>
           <Link
             href={data.user ? "/buy" : "/auth/sign-up"}
