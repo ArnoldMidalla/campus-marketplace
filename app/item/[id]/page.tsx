@@ -27,7 +27,7 @@ export default async function ItemsDetails({
   console.log(item);
 
   const name = item?.name;
-  const phone = "08065088147";
+  const phone = "+2348065088147";
   const user = data.user?.user_metadata.full_name;
 
   const maxLength = 200;
