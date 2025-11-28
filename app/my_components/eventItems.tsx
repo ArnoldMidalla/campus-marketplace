@@ -35,8 +35,8 @@ export default function EventItems({
       </div>
       <p className="text-sm opacity-80 pt-2 leading-4">{type}</p>
       <h1 className="font-bold leading-5 line-clamp-2">{eventName}</h1>
-      <p className="text-sm flex w-fit">
-        <MapPin className="h-4 w-fit" />
+      <p className="text-sm flex items-center gap-0.5 w-fit">
+        <MapPin size={14} />
         {location}
       </p>
       {/* <p>{time.slice(0, 5)}</p> */}

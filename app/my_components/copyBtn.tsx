@@ -8,7 +8,7 @@ import { toast } from "sonner";
 export default function CopyLinkButton({ id }: { id: string }) {
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(`https://campus-marketplace-dusky.vercel.app/item/${id}`);
+      await navigator.clipboard.writeText(`https://campus-marketplace-app.vercel.app/item/${id}`);
       toast.success("Link copied to clipboard!");
     } catch (error) {
       console.error("Failed to copy:", error);

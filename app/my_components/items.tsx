@@ -52,7 +52,7 @@ export default function Items({
         />
       </div>
       <p className="text-sm opacity-80 pt-2 leading-4">{category}</p>
-      <h1 className="font-bold leading-5 line-clamp-2">{name}</h1>
+      <h1 className="font-bold leading-5 line-clamp-2 lg:line-clamp-1">{name}</h1>
       <div className="flex items-center gap-1">
         <p className="text-blue-700 dark:text-blue-500 font-bold">
           ₦{formatPrice}

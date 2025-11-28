@@ -46,6 +46,9 @@ export default async function ItemsDetails({
   const formatPrice = item.price.toLocaleString();
   // console.log(formatted); // "300,000"
 
+  const date = new Date(item.created_at);
+  const mainDate = date.toLocaleString();
+
   return (
     <section className="min-h-screen inset-0 z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb40_1px,transparent_1px)] [background-size:16px_16px] md:flex md:items-center">
       <div className="text-center md:text-left md:flex mx-auto max-w-5xl md:items-center pt-24 md:pt-20 pb-8 px-[30px] gap-12">
@@ -73,6 +76,11 @@ export default async function ItemsDetails({
               {data.user?.id === item?.uploadById ? "you" : item.uploadedByName}
             </p>
           </div>
+
+          <p className="text-sm opacity-80">
+            Uploaded on
+            <span className="font-medium">{" " + mainDate}</span>
+          </p>
           <div className="md:hidden text-sm font-medium text-black/80 dark:text-white/80 leading-4 tracking-tight space-y-2">
             {newUsed}
             <div className="flex gap-2">
